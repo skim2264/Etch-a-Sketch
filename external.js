@@ -19,7 +19,8 @@ function setupDivs(x) {
 setupDivs(16);
 
 div.addEventListener('mouseover', function(e) {
-    e.target.classList.add('color');
+    const randColor = Math.floor(Math.random()*16777215).toString(16);
+    e.target.style.backgroundColor = '#' + randColor;
 });
 
 button.addEventListener('click', function(e) {
