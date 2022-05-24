@@ -2,6 +2,7 @@ const container = document.querySelector('#container');
 const div = document.querySelector('div');
 const button = document.querySelector('button');
 const color = document.querySelector('.color');
+let opacity = 0;
 
 function setupDivs(x) {
     for (let i=0; i < x; i++) {
@@ -19,8 +20,14 @@ function setupDivs(x) {
 setupDivs(16);
 
 div.addEventListener('mouseover', function(e) {
-    const randColor = Math.floor(Math.random()*16777215).toString(16);
-    e.target.style.backgroundColor = '#' + randColor;
+    e.target.classList.add('color');
+    let opacity = e.target.style.opacity;
+    if (e.target.classList.contains('opacity')) {
+        e.target.style.opacity = (Number(opacity) + 0.1);
+    }
+    else {
+        e.target.classList.add('opacity');
+    }
 });
 
 button.addEventListener('click', function(e) {
